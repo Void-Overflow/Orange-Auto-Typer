@@ -1,4 +1,6 @@
 # Orange-Auto-Typer
+NOTE: THE CODE FOR THIS APPLICATION HAS NOT BEEN ADDED YET SO PLEASE BEAR WITH ME WHILE I FINISH UP ON SOME THINGS WITH ORANGE AUTO TYPER. WAIT ABOUT A MONTH AND THIS APPLICATION WILL BE RELEASED TO THE PUBLIC. IF YOU DOWNLOAD THIS APPLICATION NOW YOU WILL NOT BE ABLE TO USE IT. FOR MORE INFORMATION PLEASE SUBMIT AN ISSUE ON THIS REPOSITORY.
+
 Description:
 This auto typer is a great and simple auto typer to use! It is currently in ALPHA testing and will be open to new features, updates, and encancements. There may be bugs as this is relativly new. If you wish to use this application and/or add your own features to it feel free. Just note that comercial usage or redistributions of this software with my code is not allowed without approval by Comyar D/Void_Overflow. This is a C++ native application with usage from the Windows.h library. This may not work on other platforms other than Windows.
 
