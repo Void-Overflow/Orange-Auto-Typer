@@ -1,0 +1,4 @@
+UPDATE 0.1: ALPHA VERSION : 
+*File code realeased and OrangeAutoTyper is not available to the public!
+*Json manipulation. Commands are read from json.
+*more updates will be available in the future as there are more issues and suggestions
