@@ -1,0 +1,129 @@
+/*******************************************************************************************************************************************************************
+This is the file where you add your own commands. To add 
+ a command you need to first understand how json works.
+Here is a small diagram about json:
+
+Diagram:
+"SLOT"{ //This is the slot that will be used
+  "command": "This is the command in which you want the auto typer to type"
+  "prefix": "This is for if you want the autotyper to return a value that can not be expressed by a string of keys. Such as if you want the typer to press the enter or shift key."
+  }
+
+  Layout:
+  empty1{ // This is the slot in which your commands are going to be stored in.
+
+
+  }
+
+  empty1{
+  "command" : "'key to be pressed'" // inside the slot, you have 2 values, and for each value there are 2 things the value type which is on the left of the :, 
+  and the value's value which is on the right
+
+  }
+
+      KEY:
+Enter = {enter}
+space = "{space}"
+ctrl = "{ctrl}"
+shift = "{shift}"
+tab = "{tab}"
+EMPTY SLOT WITH NO VALUE = ""
+
+
+For more information about this software,
+read the README file in the folder of this application.
+
+   
+//EXAMPLES:
+"TEST1": {
+    "command": "Hi",
+    "prefix": "{space}"
+  },
+ "TEST2": {
+   "command": "Howdy",
+   "prefix": "{enter}"
+ },
+ 
+*********************************************************************************************************************************************************************/
+{
+  "empty1": {
+    "command": "Test",
+    "prefix": "{enter}"
+  },
+  "empty2": {
+    "command": "Command",
+    "prefix": "{enter}"
+  },
+  "empty3": {
+    "command": "",
+    "prefix": "{enter}"
+  },
+  "empty4": {
+    "command": "",
+    "prefix": "{enter}"
+  },
+  "empty5": {
+    "command": "",
+    "prefix": "{enter}"
+  },
+  "empty6": {
+    "command": "",
+    "prefix": ""
+  },
+  "empty7": {
+    "command": "",
+    "prefix": ""
+  },
+  "empty8": {
+    "command": "",
+    "prefix": ""
+  },
+  "empty9": {
+    "command": "",
+    "prefix": ""
+  },
+  "empty10": {
+    "command": "",
+    "prefix": ""
+  },
+  "empty11": {
+    "command": "",
+    "prefix": ""
+  },
+  "empty12": {
+    "command": "",
+    "prefix": ""
+  },
+  "empty13": {
+    "command": "",
+    "prefix": ""
+  },
+  "empty14": {
+    "command": "",
+    "prefix": ""
+  },
+  "empty15": {
+    "command": "",
+    "prefix": ""
+  },
+  "empty16": {
+    "command": "",
+    "prefix": ""
+  },
+  "empty17": {
+    "command": "",
+    "prefix": ""
+  },
+  "empty18": {
+    "command": "",
+    "prefix": ""
+  },
+  "empty19": {
+    "command": "",
+    "prefix": ""
+  },
+  "empty20": {
+    "command": "",
+    "prefix": ""
+  }
+}
