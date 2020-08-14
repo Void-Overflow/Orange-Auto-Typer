@@ -1,0 +1,5 @@
+﻿1>------ Build started: Project: Orange Auto Typer, Configuration: Debug Win32 ------
+1>C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(491,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (DiscordTyperCpp.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+1>LINK : fatal error LNK1168: cannot open C:\Users\dehla\Desktop\Visual Studio Projects\C++\DiscordTyperCpp\Debug\Orange Auto Typer.exe for writing
+1>Done building project "DiscordTyperCpp.vcxproj" -- FAILED.
+========== Build: 0 succeeded, 1 failed, 0 up-to-date, 0 skipped ==========
