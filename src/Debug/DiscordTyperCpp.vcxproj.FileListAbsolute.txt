@@ -1,0 +1,2 @@
+C:\Users\dehla\Desktop\Visual Studio Projects\C++\DiscordTyperCpp\Debug\Orange Auto Typer.exe
+C:\Users\dehla\Desktop\Visual Studio Projects\C++\DiscordTyperCpp\Debug\Orange Auto Typer.pdb
