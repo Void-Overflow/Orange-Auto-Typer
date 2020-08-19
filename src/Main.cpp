@@ -23,12 +23,12 @@ open the Orange Auto Typer application and follow the steps required.
  https://github.com/Void-Overflow?tab=repositories
  Or for more detailed help please visit the website for this software at -- https://OrangeTyper.netlify.app
  For more precise help methods and for beginners with no knowledge of git or github. For help please send an email
- to the correspoding email address @ -- OrangeSupport@gmail.com
+ to the correspoding email address @ -- Orangetyper@gmail.com
  Redistribution of this software is not prohibited without approval from Comyar D/Void_Overflow.
  To assign keyslot values, go to the "commands.json" file and add the commands and  prefixes you would like.
  For more information or help about the software, please visit the corresponding Github repository
  for it at -- https://github.com/Void-Overflow/Orange-Auto-Typer and submit an issue. Or, visit my website at -- 
- https://OrangeAutoTyper.netlify.app for help on how to submit an issue and more general information
+ https://OrangeTyper.netlify.app for help on how to submit an issue and more general information
 
 
  Jsoncpp is not my software nor do I own or have any relation to the creation or management
