@@ -45,26 +45,26 @@ read the README file in the folder of this application.
  },
  
 *********************************************************************************************************************************************************************/
-{
+ {
   "empty1": {
-    "command": "Test",
+    "command": "test",
     "prefix": "{enter}"
   },
   "empty2": {
-    "command": "Command",
-    "prefix": "{enter}"
+    "command": "",
+    "prefix": ""
   },
   "empty3": {
     "command": "",
-    "prefix": "{enter}"
+    "prefix": ""
   },
   "empty4": {
     "command": "",
-    "prefix": "{enter}"
+    "prefix": ""
   },
   "empty5": {
     "command": "",
-    "prefix": "{enter}"
+    "prefix": ""
   },
   "empty6": {
     "command": "",
