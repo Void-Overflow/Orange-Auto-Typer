@@ -48,65 +48,15 @@ open the Orange Auto Typer application and follow the steps required.
 #include <future>
 #include <functional>
 #include <chrono>
+#define OrangeTyper
 
-//EXAMPLE PRINT FUNCTIONS
-//void beg() {	
-//	keybd_event(0x50, 0, 0, 0);
-//	keybd_event(0x50, 0, KEYEVENTF_KEYUP, 0);
-//
-//	keybd_event(0x4C, 0, 0, 0);
-//	keybd_event(0x4C, 0, KEYEVENTF_KEYUP, 0);
-//
-//	keybd_event(0x53, 0, 0, 0);
-//	keybd_event(0x53, 0, KEYEVENTF_KEYUP, 0);
-//
-//	keybd_event(VK_SPACE, 0, 0, 0);
-//	keybd_event(VK_SPACE, 0, KEYEVENTF_KEYUP, 0);
-//
-//	keybd_event(0x42, 0, 0, 0);
-//	keybd_event(0x42, 0, KEYEVENTF_KEYUP, 0);
-//
-//	keybd_event(0x45, 0, 0, 0);
-//	keybd_event(0x45, 0, KEYEVENTF_KEYUP, 0);
-//
-//	keybd_event(0x47, 0, 0, 0);
-//	keybd_event(0x47, 0, KEYEVENTF_KEYUP, 0);
-//}
-//
-//void deposit() {
-//	keybd_event(0x50, 0, 0, 0);
-//	keybd_event(0x50, 0, KEYEVENTF_KEYUP, 0);
-//
-//	keybd_event(0x4C, 0, 0, 0);
-//	keybd_event(0x4C, 0, KEYEVENTF_KEYUP, 0);
-//
-//	keybd_event(0x53, 0, 0, 0);
-//	keybd_event(0x53, 0, KEYEVENTF_KEYUP, 0);
-//
-//	keybd_event(VK_SPACE, 0, 0, 0);
-//	keybd_event(VK_SPACE, 0, KEYEVENTF_KEYUP, 0);
-//
-//	keybd_event(0x44, 0, 0, 0);
-//	keybd_event(0x44, 0, KEYEVENTF_KEYUP, 0);
-//
-//	keybd_event(0x45, 0, 0, 0);
-//	keybd_event(0x45, 0, KEYEVENTF_KEYUP, 0);
-//	
-//	keybd_event(0x50, 0, 0, 0);
-//	keybd_event(0x50, 0, KEYEVENTF_KEYUP, 0);
-//
-//	keybd_event(VK_SPACE, 0, 0, 0);
-//	keybd_event(VK_SPACE, 0, KEYEVENTF_KEYUP, 0);
-//
-//	keybd_event(0x41, 0, 0, 0);
-//	keybd_event(0x41, 0, KEYEVENTF_KEYUP, 0);
-//
-//	keybd_event(0x4C, 0, 0, 0);
-//	keybd_event(0x4C, 0, KEYEVENTF_KEYUP, 0);
-//
-//	keybd_event(0x4C, 0, 0, 0);
-//	keybd_event(0x4C, 0, KEYEVENTF_KEYUP, 0);
-//}
+void cite() {
+
+	std::this_thread::sleep_for(std::chrono::milliseconds(200));
+	HANDLE hConsolec = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hConsolec, 3);
+std::cout << "Copyright: Comyar D,Void-Overflow" << std::endl << "@https://OrangeAutoTyper.netlify.app";
+}
 
 namespace utility {
 	void clear() {
@@ -129,8 +79,13 @@ namespace utility {
 	HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
 	COORD CursorPosition;
 
-	void setAxis(int x, int y) {
-		CursorPosition.X = x;
+	void setAxis(int x, int y, std::string path, std::string prefixPath) {
+		if (prefixPath == "") {
+			CursorPosition.X = path.length() + 12;
+		}
+		else {
+			CursorPosition.X = path.length() + prefixPath.length() + 16;
+		}
 		CursorPosition.Y = y;
 		SetConsoleCursorPosition(console, CursorPosition);
 	}
@@ -154,15 +109,20 @@ int main() {
 	}
 
 	long double gap;
-	std::cout << "Please enter the amount of time space you would like inbetween each command. Please enter the time in seconds." << std::endl;
+	std::cout << "Please enter how much of a time gap you would like inbetween each command. Please enter the time in seconds." << std::endl;
 	std::cin >> gap;
 	unsigned int unassignedSlots = 0;
 
 	while (GetAsyncKeyState(VK_ESCAPE))
 		return 0;
+	
+	utility::clear();
+	for (int i = 10; i > 0; i--) {
+		std::cout << "Starting in " << i << " seconds...";	
+		Sleep(1000);
+		utility::clear();
+	}
 
-	std::cout << "Starting in 10 seconds...";
-	//Sleep(10000);
 	utility::clear();
 
 	if (root["empty1"]["command"] == "") {
@@ -242,10 +202,9 @@ int main() {
 
 
 	if (root["empty1"]["command"] != "") {
-			std::cout << "Slot 1" << ": " << root["empty1"]["command"] << "||"; 
-
-			if (root["empty1"]["prefix"] != "") 
-				std::cout << root["empty1"]["prefix"] << "||";	
+			std::cout << "Slot 1" << ": " << root["empty1"]["command"] << "||";
+			if (root["empty1"]["prefix"] != "")
+				std::cout << root["empty1"]["prefix"] << "||";
 
 			std::cout << "Awaiting Entry..." << std::endl;
 			std::cout << "------------------------" << std::endl;
@@ -442,8 +401,8 @@ int main() {
 		std::cout << "------------------------" << std::endl;
 	}
 
-	std::cout << std::endl << std::endl << "The rest of your command slots are empty. To assign a command to a slot, open the 'commands.json' file in your application folder You have: " << unassignedSlots << " out of 20 command slots free to use. For help "
-		"setting up the commands please visit the official website at -- https://OrangeAutoTyper.netlify.app " << std::endl;
+	std::cout << std::endl << std::endl << unassignedSlots << " out of 20 command slots free." << std::endl;
+	cite();
 	int rotateInt = 21;
 	const int tempRotateInt = rotateInt;
 	while (1) {
@@ -454,269 +413,289 @@ int main() {
 				utility::endOnKeyState();
 				rotateInt--;
 				if (i == 1 && root["empty1"]["command"] != "") {
-					if (root["empty1"]["prefix"] == "")
-						utility::setAxis(18, 3);
-					else
-						utility::setAxis(27, 3);
 					std::string rootOneAsString = root["empty1"]["command"].asString();
+					std::string prefixOneAsString = root["empty1"]["prefix"].asString();
+					if (root["empty1"]["prefix"] == "")
+						utility::setAxis(18, 3, rootOneAsString,prefixOneAsString);
+					else
+						utility::setAxis(27, 3, rootOneAsString, prefixOneAsString);
 					auto countDownThread = std::async(std::launch::async, Time::countDown, gap, rootOneAsString, root["empty1"]["prefix"]);
 					utility::endOnKeyState();
 					if (root["empty1"]["prefix"] == "")
-						utility::setAxis(18, 3);
+						utility::setAxis(18, 3, rootOneAsString, prefixOneAsString);
 					else
-						utility::setAxis(27, 3);
+						utility::setAxis(27, 3, rootOneAsString, prefixOneAsString);
 				}
 
 				if (i == 2 && root["empty2"]["command"] != "") {
-					if (root["empty2"]["prefix"] == "")
-						utility::setAxis(18, 5);
-					else
-						utility::setAxis(27,5);
 					std::string rootTwoAsString = root["empty2"]["command"].asString();
+					std::string prefixTwoAsString = root["empty2"]["prefix"].asString();
+					if (root["empty2"]["prefix"] == "")
+						utility::setAxis(18, 5, rootTwoAsString, prefixTwoAsString);
+					else
+						utility::setAxis(27, 5, rootTwoAsString, prefixTwoAsString);
 					auto countDownThread2 = std::async(std::launch::async, Time::countDown, gap, rootTwoAsString, root["empty2"]["prefix"]);
 					utility::endOnKeyState();
 					if (root["empty2"]["prefix"] == "")
-						utility::setAxis(18, 5);
+						utility::setAxis(18, 5, rootTwoAsString, prefixTwoAsString);
 					else
-						utility::setAxis(27, 5);
+						utility::setAxis(27, 5, rootTwoAsString, prefixTwoAsString);
 
 				}
+				
 				if (i == 3 && root["empty3"]["command"] != "") {
-					if (root["empty3"]["prefix"] == "")
-						utility::setAxis(18, 7);
-					else
-						utility::setAxis(27, 7);
 					std::string rootThreeAsString = root["empty3"]["command"].asString();
+					std::string prefixThreeAsString = root["empty3"]["prefix"].asString();
+					if (root["empty3"]["prefix"] == "")
+						utility::setAxis(18, 7, rootThreeAsString, prefixThreeAsString);
+					else
+						utility::setAxis(27, 7, rootThreeAsString, prefixThreeAsString);
 					auto countDownThread3 = std::async(std::launch::async, Time::countDown, gap, rootThreeAsString, root["empty3"]["prefix"]);
 					utility::endOnKeyState();
 					if (root["empty3"]["prefix"] == "")
-						utility::setAxis(18, 7);
+						utility::setAxis(18, 7, rootThreeAsString, prefixThreeAsString);
 					else
-						utility::setAxis(27, 7);
+						utility::setAxis(27, 7, rootThreeAsString, prefixThreeAsString);
 				}
 				if (i == 4 && root["empty4"]["command"] != "") {
+					std::string rootFourAsString = root["empty4"]["command"].asString();
+					std::string prefixFourAsString = root["empty4"]["prefix"].asString();
 					if (root["empty4"]["prefix"] == "")
-						utility::setAxis(18, 9);
+						utility::setAxis(18, 9, rootFourAsString, prefixFourAsString);
 					else
-						utility::setAxis(27, 9);
-					std::string rootOneAsString = root["empty4"]["command"].asString();
-					auto countDownThread = std::async(std::launch::async, Time::countDown, gap, rootOneAsString, root["empty4"]["prefix"]);
+						utility::setAxis(27, 9, rootFourAsString, prefixFourAsString);
+					auto countDownThread = std::async(std::launch::async, Time::countDown, gap, rootFourAsString, root["empty4"]["prefix"]);
 					utility::endOnKeyState();
 					if (root["empty4"]["prefix"] == "")
-						utility::setAxis(18, 9);
+						utility::setAxis(18, 9, rootFourAsString, prefixFourAsString);
 					else
-						utility::setAxis(27, 9);
+						utility::setAxis(27, 9, rootFourAsString, prefixFourAsString);
 				}
 				if (i == 5 && root["empty5"]["command"] != "") {
+					std::string rootFiveAsString = root["empty5"]["command"].asString();
+					std::string prefixFiveAsString = root["empty5"]["prefix"].asString();
 					if (root["empty5"]["prefix"] == "")
-						utility::setAxis(18, 11);
+						utility::setAxis(18, 11, rootFiveAsString, prefixFiveAsString);
 					else
-						utility::setAxis(27, 11);
-					std::string rootOneAsString = root["empty5"]["command"].asString();
-					auto countDownThread = std::async(std::launch::async, Time::countDown, gap, rootOneAsString, root["empty5"]["prefix"]);
+						utility::setAxis(27, 11, rootFiveAsString, prefixFiveAsString);
+					auto countDownThread = std::async(std::launch::async, Time::countDown, gap, rootFiveAsString, root["empty5"]["prefix"]);
 					utility::endOnKeyState();
 					if (root["empty5"]["prefix"] == "")
-						utility::setAxis(18, 11);
+						utility::setAxis(18, 11, rootFiveAsString, prefixFiveAsString);
 					else
-						utility::setAxis(27, 11);
+						utility::setAxis(27, 11, rootFiveAsString, prefixFiveAsString);
 				}
 				if (i == 6 && root["empty6"]["command"] != "") {
+					std::string rootSixAsString = root["empty6"]["command"].asString();
+					std::string prefixSixAsString = root["empty6"]["prefix"].asString();
 					if (root["empty6"]["prefix"] == "")
-						utility::setAxis(18, 13);
+						utility::setAxis(18, 13, rootSixAsString, prefixSixAsString);
 					else
-						utility::setAxis(27, 13);
-					std::string rootOneAsString = root["empty6"]["command"].asString();
-					auto countDownThread = std::async(std::launch::async, Time::countDown, gap, rootOneAsString, root["empty6"]["prefix"]);
+						utility::setAxis(27, 13, rootSixAsString, prefixSixAsString);
+					auto countDownThreada = std::async(std::launch::async, Time::countDown, gap, rootSixAsString, root["empty6"]["prefix"]);
 					utility::endOnKeyState();
 					if (root["empty6"]["prefix"] == "")
-						utility::setAxis(18, 13);
+						utility::setAxis(18, 13, rootSixAsString, prefixSixAsString);
 					else
-						utility::setAxis(27, 13);
+						utility::setAxis(27, 13, rootSixAsString, prefixSixAsString);
 				}
 				if (i == 7 && root["empty7"]["command"] != "") {
+					std::string rootSevenAsString = root["empty7"]["command"].asString();
+					std::string prefixSevenAsString = root["empty7"]["prefix"].asString();
 					if (root["empty7"]["prefix"] == "")
-						utility::setAxis(18, 15);
+						utility::setAxis(18, 15, rootSevenAsString, prefixSevenAsString);
 					else
-						utility::setAxis(27, 15);
-					std::string rootOneAsString = root["empty7"]["command"].asString();
-					auto countDownThread = std::async(std::launch::async, Time::countDown, gap, rootOneAsString, root["empty7"]["prefix"]);
+						utility::setAxis(27, 15 , rootSevenAsString, prefixSevenAsString);
+					auto countDownThread = std::async(std::launch::async, Time::countDown, gap, rootSevenAsString, root["empty7"]["prefix"]);
 					utility::endOnKeyState();
 					if (root["empty7"]["prefix"] == "")
-						utility::setAxis(18, 15);
+						utility::setAxis(18, 15, rootSevenAsString, prefixSevenAsString);
 					else
-						utility::setAxis(27, 15);
+						utility::setAxis(27, 15, rootSevenAsString, prefixSevenAsString);
 				}
 				if (i == 8 && root["empty8"]["command"] != "") {
+					std::string rootEightAsString = root["empty8"]["command"].asString();
+					std::string prefixEightAsString = root["empty8"]["prefix"].asString();
 					if (root["empty6"]["prefix"] == "")
-						utility::setAxis(18, 17);
+						utility::setAxis(18, 17, rootEightAsString, prefixEightAsString);
 					else
-						utility::setAxis(27, 17);
-					std::string rootOneAsString = root["empty8"]["command"].asString();
-					auto countDownThread = std::async(std::launch::async, Time::countDown, gap, rootOneAsString, root["empty8"]["prefix"]);
+						utility::setAxis(27, 17, rootEightAsString, prefixEightAsString);
+					auto countDownThread = std::async(std::launch::async, Time::countDown, gap, rootEightAsString, root["empty8"]["prefix"]);
 					utility::endOnKeyState();
 					if (root["empty8"]["prefix"] == "")
-						utility::setAxis(18, 17);
+						utility::setAxis(18, 17, rootEightAsString, prefixEightAsString);
 					else
-						utility::setAxis(27, 17);
+						utility::setAxis(27, 17, rootEightAsString, prefixEightAsString);
 				}
 				if (i == 9 && root["empty9"]["command"] != "") {
+					std::string rootNineAsString = root["empty9"]["command"].asString();
+					std::string prefixNineAsString = root["empty9"]["prefix"].asString();
 					if (root["empty9"]["prefix"] == "")
-						utility::setAxis(18, 19);
+						utility::setAxis(18, 19, rootNineAsString, prefixNineAsString);
 					else
-						utility::setAxis(27, 19);
-					std::string rootOneAsString = root["empty9"]["command"].asString();
-					auto countDownThread = std::async(std::launch::async, Time::countDown, gap, rootOneAsString, root["empty9"]["prefix"]);
+						utility::setAxis(27, 19, rootNineAsString, prefixNineAsString);
+					auto countDownThread = std::async(std::launch::async, Time::countDown, gap, rootNineAsString, root["empty9"]["prefix"]);
 					utility::endOnKeyState();
 					if (root["empty9"]["prefix"] == "")
-						utility::setAxis(18, 19);
+						utility::setAxis(18, 19, rootNineAsString, prefixNineAsString);
 					else
-						utility::setAxis(27, 19);
+						utility::setAxis(27, 19, rootNineAsString, prefixNineAsString);
 				}
 				if (i == 10 && root["empty10"]["command"] != "") {
+					std::string rootTenAsString = root["empty10"]["command"].asString();
+					std::string prefixTenAsString = root["empty10"]["prefix"].asString();
 					if (root["empty10"]["prefix"] == "")
-						utility::setAxis(18, 21);
+						utility::setAxis(18, 21, rootTenAsString, prefixTenAsString);
 					else
-						utility::setAxis(27, 21);
-					std::string rootOneAsString = root["empty10"]["command"].asString();
-					auto countDownThread = std::async(std::launch::async, Time::countDown, gap, rootOneAsString, root["empty10"]["prefix"]);
+						utility::setAxis(27, 21, rootTenAsString, prefixTenAsString);
+					auto countDownThread = std::async(std::launch::async, Time::countDown, gap, rootTenAsString, root["empty10"]["prefix"]);
 					utility::endOnKeyState();
 					if (root["empty10"]["prefix"] == "")
-						utility::setAxis(18, 21);
+						utility::setAxis(18, 21, rootTenAsString, prefixTenAsString);
 					else
-						utility::setAxis(27, 21);
+						utility::setAxis(27, 21, rootTenAsString, prefixTenAsString);
 				}
 				if (i == 11 && root["empty11"]["command"] != "") {
+					std::string rootElevenAsString = root["empty11"]["command"].asString();
+					std::string prefixElevenAsString = root["empty11"]["prefix"].asString();
 					if (root["empty11"]["prefix"] == "")
-						utility::setAxis(18, 23);
+						utility::setAxis(18, 23, rootElevenAsString, prefixElevenAsString);
 					else
-						utility::setAxis(27, 23);
-					std::string rootOneAsString = root["empty11"]["command"].asString();
-					auto countDownThread = std::async(std::launch::async, Time::countDown, gap, rootOneAsString, root["empty11"]["prefix"]);
+						utility::setAxis(27, 23, rootElevenAsString, prefixElevenAsString);
+					auto countDownThread = std::async(std::launch::async, Time::countDown, gap, rootElevenAsString, root["empty11"]["prefix"]);
 					utility::endOnKeyState();
 					if (root["empty11"]["prefix"] == "")
-						utility::setAxis(18, 23);
+						utility::setAxis(18, 23, rootElevenAsString, prefixElevenAsString);
 					else
-						utility::setAxis(27, 23);
+						utility::setAxis(27, 23, rootElevenAsString, prefixElevenAsString);
 				}
 				if (i == 12 && root["empty12"]["command"] != "") {
+					std::string rootTwelveAsString = root["empty12"]["command"].asString();
+					std::string prefixTwelveAsString = root["empty12"]["prefix"].asString();
 					if (root["empty12"]["prefix"] == "")
-						utility::setAxis(18, 25);
+						utility::setAxis(18, 25, rootTwelveAsString, prefixTwelveAsString);
 					else
-						utility::setAxis(27, 25);
-					std::string rootOneAsString = root["empty12"]["command"].asString();
-					auto countDownThread = std::async(std::launch::async, Time::countDown, gap, rootOneAsString, root["empty12"]["prefix"]);
+						utility::setAxis(27, 25, rootTwelveAsString, prefixTwelveAsString);
+					auto countDownThread = std::async(std::launch::async, Time::countDown, gap, rootTwelveAsString, root["empty12"]["prefix"]);
 					utility::endOnKeyState();
 					if (root["empty12"]["prefix"] == "")
-						utility::setAxis(18, 25);
+						utility::setAxis(18, 25, rootTwelveAsString, prefixTwelveAsString);
 					else
-						utility::setAxis(27, 25);
+						utility::setAxis(27, 25, rootTwelveAsString, prefixTwelveAsString);
 				}
 				if (i == 13 && root["empty13"]["command"] != "") {
+					std::string rootThirteenAsString = root["empty13"]["command"].asString();
+					std::string prefixThirteenAsString = root["empty13"]["prefix"].asString();
 					if (root["empty13"]["prefix"] == "")
-						utility::setAxis(18, 27);
+						utility::setAxis(18, 27, rootThirteenAsString, prefixThirteenAsString);
 					else
-						utility::setAxis(27, 27);
-					std::string rootOneAsString = root["empty13"]["command"].asString();
-					auto countDownThread = std::async(std::launch::async, Time::countDown, gap, rootOneAsString, root["empty13"]["prefix"]);
+						utility::setAxis(27, 27, rootThirteenAsString, prefixThirteenAsString);
+					auto countDownThread = std::async(std::launch::async, Time::countDown, gap, rootThirteenAsString, root["empty13"]["prefix"]);
 					utility::endOnKeyState();
 					if (root["empty13"]["prefix"] == "")
-						utility::setAxis(18, 27);
+						utility::setAxis(18, 27, rootThirteenAsString, prefixThirteenAsString);
 					else
-						utility::setAxis(27, 27);
+						utility::setAxis(27, 27, rootThirteenAsString, prefixThirteenAsString);
 				}
 				if (i == 14 && root["empty14"]["command"] != "") {
+					std::string rootFourteeAsString = root["empty14"]["command"].asString();
+					std::string prefixFourteeAsString = root["empty14"]["prefix"].asString();
 					if (root["empty14"]["prefix"] == "")
-						utility::setAxis(18, 29);
+						utility::setAxis(18, 29, rootFourteeAsString, prefixFourteeAsString);
 					else
-						utility::setAxis(27, 29);
-					std::string rootOneAsString = root["empty14"]["command"].asString();
-					auto countDownThread = std::async(std::launch::async, Time::countDown, gap, rootOneAsString, root["empty14"]["prefix"]);
+						utility::setAxis(27, 29, rootFourteeAsString, prefixFourteeAsString);
+					auto countDownThread = std::async(std::launch::async, Time::countDown, gap, rootFourteeAsString, root["empty14"]["prefix"]);
 					utility::endOnKeyState();
 					if (root["empty14"]["prefix"] == "")
-						utility::setAxis(18, 29);
+						utility::setAxis(18, 29, rootFourteeAsString, prefixFourteeAsString);
 					else
-						utility::setAxis(27, 29);
+						utility::setAxis(27, 29, rootFourteeAsString, prefixFourteeAsString);
 				}
 				if (i == 15 && root["empty15"]["command"] != "") {
+					std::string rootFifteenAsString = root["empty15"]["command"].asString();
+					std::string prefixFifteenAsString = root["empty15"]["prefix"].asString();
 					if (root["empty15"]["prefix"] == "")
-						utility::setAxis(18, 31);
+						utility::setAxis(18, 31, rootFifteenAsString, prefixFifteenAsString);
 					else
-						utility::setAxis(27, 31);
-					std::string rootOneAsString = root["empty15"]["command"].asString();
-					auto countDownThread = std::async(std::launch::async, Time::countDown, gap, rootOneAsString, root["empty15"]["prefix"]);
+						utility::setAxis(27, 31, rootFifteenAsString, prefixFifteenAsString);
+					auto countDownThread = std::async(std::launch::async, Time::countDown, gap, rootFifteenAsString, root["empty15"]["prefix"]);
 					utility::endOnKeyState();
 					if (root["empty15"]["prefix"] == "")
-						utility::setAxis(18, 31);
+						utility::setAxis(18, 31, rootFifteenAsString, prefixFifteenAsString);
 					else
-						utility::setAxis(27, 31);
+						utility::setAxis(27, 31, rootFifteenAsString, prefixFifteenAsString);
 				}
 				if (i == 16 && root["empty16"]["command"] != "") {
+					std::string rootSixteenAsString = root["empty16"]["command"].asString();
+					std::string prefixSixteenAsString = root["empty16"]["prefix"].asString();
 					if (root["empty16"]["prefix"] == "")
-						utility::setAxis(18, 33);
+						utility::setAxis(18, 33, rootSixteenAsString, prefixSixteenAsString);
 					else
-						utility::setAxis(27, 33);
-					std::string rootOneAsString = root["empty16"]["command"].asString();
-					auto countDownThread = std::async(std::launch::async, Time::countDown, gap, rootOneAsString, root["empty16"]["prefix"]);
+						utility::setAxis(27, 33, rootSixteenAsString, prefixSixteenAsString);
+					auto countDownThread = std::async(std::launch::async, Time::countDown, gap, rootSixteenAsString, root["empty16"]["prefix"]);
 					utility::endOnKeyState();
 					if (root["empty16"]["prefix"] == "")
-						utility::setAxis(18, 33);
+						utility::setAxis(18, 33, rootSixteenAsString, prefixSixteenAsString);
 					else
-						utility::setAxis(27,33);
+						utility::setAxis(27,33, rootSixteenAsString, prefixSixteenAsString);
 				}
 				if (i == 17 && root["empty17"]["command"] != "") {
+					std::string rootSeventeenAsString = root["empty17"]["command"].asString();
+					std::string prefixSeventeenAsString = root["empty17"]["prefix"].asString();
 					if (root["empty17"]["prefix"] == "")
-						utility::setAxis(18, 35);
+						utility::setAxis(18, 35, rootSeventeenAsString, prefixSeventeenAsString);
 					else
-						utility::setAxis(27, 35);
-					std::string rootOneAsString = root["empty17"]["command"].asString();
-					auto countDownThread = std::async(std::launch::async, Time::countDown, gap, rootOneAsString, root["empty17"]["prefix"]);
+						utility::setAxis(27, 35, rootSeventeenAsString, prefixSeventeenAsString);
+					auto countDownThread = std::async(std::launch::async, Time::countDown, gap, rootSeventeenAsString, root["empty17"]["prefix"]);
 					utility::endOnKeyState();
 					if (root["empty17"]["prefix"] == "")
-						utility::setAxis(18, 35);
+						utility::setAxis(18, 35, rootSeventeenAsString, prefixSeventeenAsString);
 					else
-						utility::setAxis(27, 35);
+						utility::setAxis(27, 35, rootSeventeenAsString, prefixSeventeenAsString);
 				}
 				if (i == 18 && root["empty18"]["command"] != "") {
+					std::string rootEighteenAsString = root["empty18"]["command"].asString();
+					std::string prefixEighteenAsString = root["empty18"]["prefix"].asString();
 					if (root["empty18"]["prefix"] == "")
-						utility::setAxis(18, 37);
+						utility::setAxis(18, 37, rootEighteenAsString, prefixEighteenAsString);
 					else
-						utility::setAxis(27, 37);
-					std::string rootOneAsString = root["empty18"]["command"].asString();
-					auto countDownThread = std::async(std::launch::async, Time::countDown, gap, rootOneAsString, root["empty18"]["prefix"]);
+						utility::setAxis(27, 37, rootEighteenAsString, prefixEighteenAsString);
+					auto countDownThread = std::async(std::launch::async, Time::countDown, gap, rootEighteenAsString, root["empty18"]["prefix"]);
 					utility::endOnKeyState();
 					if (root["empty18"]["prefix"] == "")
-						utility::setAxis(18, 37);
+						utility::setAxis(18, 37, rootEighteenAsString, prefixEighteenAsString);
 					else
-						utility::setAxis(27, 37);
+						utility::setAxis(27, 37, rootEighteenAsString, prefixEighteenAsString);
 				}
 				if (i == 19 && root["empty19"]["command"] != "") {
+					std::string rootNineteenAsString = root["empty19"]["command"].asString();
+					std::string prefixNineteenAsString = root["empty19"]["prefix"].asString();
 					if (root["empty19"]["prefix"] == "")
-						utility::setAxis(18, 39);
+						utility::setAxis(18, 39, rootNineteenAsString, prefixNineteenAsString);
 					else
-						utility::setAxis(27, 39);
-					std::string rootOneAsString = root["empty19"]["command"].asString();
-					auto countDownThread = std::async(std::launch::async, Time::countDown, gap, rootOneAsString, root["empty19"]["prefix"]);
+						utility::setAxis(27, 39, rootNineteenAsString, prefixNineteenAsString);
+					auto countDownThread = std::async(std::launch::async, Time::countDown, gap, rootNineteenAsString, root["empty19"]["prefix"]);
 					utility::endOnKeyState();
 					if (root["empty19"]["prefix"] == "")
-						utility::setAxis(18, 39);
+						utility::setAxis(18, 39, rootNineteenAsString, prefixNineteenAsString);
 					else
-						utility::setAxis(27, 39);
+						utility::setAxis(27, 39, rootNineteenAsString, prefixNineteenAsString);
 				}
 				if (i == 20 && root["empty20"]["command"] != "") {
+					std::string rootTwentyAsString = root["empty20"]["command"].asString();
+					std::string prefixTwentyAsString = root["empty20"]["prefix"].asString();
 					if (root["empty20"]["prefix"] == "")
-						utility::setAxis(18, 41);
+						utility::setAxis(18, 41, rootTwentyAsString, prefixTwentyAsString);
 					else
-						utility::setAxis(27, 41);
-					std::string rootOneAsString = root["empty20"]["command"].asString();
-					auto countDownThread = std::async(std::launch::async, Time::countDown, gap, rootOneAsString, root["empty20"]["prefix"]);
+						utility::setAxis(27, 41, rootTwentyAsString, prefixTwentyAsString);
+					auto countDownThread = std::async(std::launch::async, Time::countDown, gap, rootTwentyAsString, root["empty20"]["prefix"]);
 					utility::endOnKeyState();
 					if (root["empty20"]["prefix"] == "")
-						utility::setAxis(18, 41);
+						utility::setAxis(18, 41, rootTwentyAsString, prefixTwentyAsString);
 					else
-						utility::setAxis(27, 41);
+						utility::setAxis(27, 41, rootTwentyAsString, prefixTwentyAsString);
 				}
 			}
-
 		}
 		if (rotateInt == 0) 
 			rotateInt = tempRotateInt;				
