@@ -21,7 +21,7 @@ open the Orange Auto Typer application and follow the steps required.
  To contact me for support or more information about
  this application, visit my Github repository at --
  https://github.com/Void-Overflow?tab=repositories
- Or for more detailed help please visit the website for this software at -- https://OrangeAutoTyper.netlify.app
+ Or for more detailed help please visit the website for this software at -- https://OrangeTyper.netlify.app
  For more precise help methods and for beginners with no knowledge of git or github. For help please send an email
  to the correspoding email address @ -- OrangeSupport@gmail.com
  Redistribution of this software is not prohibited without approval from Comyar D/Void_Overflow.
