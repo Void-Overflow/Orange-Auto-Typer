@@ -1,7 +1,7 @@
 # Orange-Auto-Typer
  Comyar D/Void-Overflow 2020
  
-NOTE: THIS APPLICATION IS STILL IN ALPHA TESTING SO IT MAY CONTAIN BUGS. PLEASE VISIT MY WEBSITE @ https://www.orangetyper.netlify.app FOR MORE INFORMATION ABOUT THIS SOFTWARE FOR SUPPORT EMAIL US @ orangetyper@gmail.com
+NOTE: THIS APPLICATION IS STILL IN ALPHA TESTING SO IT MAY CONTAIN BUGS. PLEASE VISIT MY WEBSITE @ https://www.orangetyper.netlify.app FOR MORE INFORMATION ABOUT THIS SOFTWARE FOR SUPPORT EMAIL US @ orangetyper@gmail.com. YOU NEED TO HAVE VISUAL C++ INSTALLED ON YOUR SYSTEM IN ORDER TO USE THIS APPLICATION. TO INSTALL C++ VISIT THIS LINK OR GO TO OUR SITE FOR MORE INFORMATION https://www.microsoft.com/en-us/download/details.aspx?id=40784
 
 Description:
 This auto typer is a great and simple auto typer to use! It is currently in ALPHA testing and will be open to new features, updates, and encancements. There may be bugs as this is relativly new. If you wish to use this application and/or add your own features to it feel free. Just note that comercial usage or redistributions of this software with my code is not allowed without approval by Comyar D/Void_Overflow. This is a C++ native application with usage from the Windows.h library. This may not work on other platforms other than Windows. At the moment you need to have Visual C++ installed on your system. To install it visit - 
