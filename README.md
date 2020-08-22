@@ -17,7 +17,7 @@ When you download Orange Auto Typer, you should get a folder. Inside of that fol
  Redistribution of this software is not prohibited without approval from Comyar D/Void_Overflow.
  To assign keyslot values, go to the "commands.json" file and add the commands and  prefixes you would like.
  For more information or help about the software, please visit the corresponding Github repository
- for it at -- https://github.com/Void-Overflow/Orange-Auto-Typer
+ for it at -- https://github.com/Void-Overflow/Orange-Auto-Typer All the rules that apply to Orange Auto Typer also apply to Orange Auto clicker. Please visit https://orangetyper-tos.netlify.app for more information about our TOS.
 
  Jsoncpp is not my software nor do I own or have any relation to the creation or management 
  of the software. For more information about Jsoncpp please vitit their Github repository at --
