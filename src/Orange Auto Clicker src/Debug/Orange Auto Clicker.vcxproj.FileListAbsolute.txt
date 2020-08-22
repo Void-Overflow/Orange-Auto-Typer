@@ -1,0 +1,2 @@
+C:\Users\dehla\Desktop\Visual Studio Projects\C++\Orange Auto Clicker\Debug\Orange Auto Clicker.exe
+C:\Users\dehla\Desktop\Visual Studio Projects\C++\Orange Auto Clicker\Debug\Orange Auto Clicker.pdb

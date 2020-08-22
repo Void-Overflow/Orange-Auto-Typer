@@ -1,0 +1,5 @@
+﻿  Main.cpp
+C:\Users\dehla\Desktop\Visual Studio Projects\C++\Orange Auto Clicker\Definitions.h(130,9): warning C4244: 'argument': conversion from 'long double' to 'DWORD', possible loss of data
+C:\Users\dehla\Desktop\Visual Studio Projects\C++\Orange Auto Clicker\Definitions.h(180): warning C4715: 'Time::countDown': not all control paths return a value
+C:\Users\dehla\Desktop\Visual Studio Projects\C++\Orange Auto Clicker\Main.cpp(48): warning C4715: 'utility::endOnKeyState': not all control paths return a value
+  Orange Auto Clicker.vcxproj -> C:\Users\dehla\Desktop\Visual Studio Projects\C++\Orange Auto Clicker\Debug\Orange Auto Clicker.exe

@@ -1,0 +1,16 @@
+Code : Color
+--------------
+1: || Galaxy Blue
+2: || Forest Green
+3: || Blood Red
+4: || Barney Purple
+5: || Avocado Green
+6: || Wolf White
+7: || Concrete Grey
+8: || Mily Blue
+9: || Neon Green
+10:|| Cyan
+11:|| Bright Red
+12:|| Bright Purple
+13:|| Mexico Yellow
+15:|| Snow White
