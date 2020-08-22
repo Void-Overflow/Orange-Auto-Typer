@@ -1,3 +1,0 @@
-1:Minor improvments to the software for cosmetics and added features
-
-2:Fixed an issue where while counting down the numbers would eat up the words
